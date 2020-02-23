@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Testing Auth Server</title>
+  </head>
+  <body>
+    <div id="container">
+      <h2>Get a Token</h2>
+      <input id="code" type="text" placeholder="code" />
+      <button id="getToken">Get Token</button>
+      <p id="result"></p>
+    </div>
+
+    <div id="container">
+      <h2>Refresh Token</h2>
+      <input id="refresh" type="text" placeholder="refresh token" />
+      <button id="refreshToken">Refresh Token</button>
+      <p id="newtoken"></p>
+      <p id="originaltoken"></p>
+    </div>
+
+    <script type="text/javascript">
+      //code to get the token
+      const getTokenElement = document.getElementById("getToken");
+      getTokenElement.onclick = function() {
+        const codeElement = document.getElementById("code");
+        const resultElement = document.getElementById("result");
+        const codeValue = codeElement.value;
+
+        const lambdaURL =
+          "https://h5gxqq7w59.execute-api.eu-central-1.amazonaws.com/dev/api/token/" +
+          codeValue;
+
+        fetch(lambdaURL)
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(json) {
+            resultElement.innerHTML = JSON.stringify(json);
+          });
+      };
+
+      //code to get refreshed token
+      const getRefreshTokenElement = document.getElementById("refreshToken");
+      getRefreshTokenElement.onclick = function() {
+        const tokenElement = document.getElementById("refresh");
+        const tokenresultElement = document.getElementById("newtoken");
+        const tokenValue = tokenElement.value;
+
+        const lambdaURL =
+          "https://h5gxqq7w59.execute-api.eu-central-1.amazonaws.com/dev/api/refresh/" +
+          tokenValue;
+        fetch(lambdaURL)
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(json) {
+            tokenresultElement.innerHTML = JSON.stringify(json);
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      };
+    </script>
+  </body>
+</html>
