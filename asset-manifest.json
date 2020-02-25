@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/hangout/static/css/main.36e68969.chunk.css",
-    "main.js": "/hangout/static/js/main.29d313fb.chunk.js",
-    "main.js.map": "/hangout/static/js/main.29d313fb.chunk.js.map",
+    "main.css": "/hangout/static/css/main.d79517ad.chunk.css",
+    "main.js": "/hangout/static/js/main.e69fda23.chunk.js",
+    "main.js.map": "/hangout/static/js/main.e69fda23.chunk.js.map",
     "runtime-main.js": "/hangout/static/js/runtime-main.49fbb017.js",
     "runtime-main.js.map": "/hangout/static/js/runtime-main.49fbb017.js.map",
     "static/js/2.d775dcfd.chunk.js": "/hangout/static/js/2.d775dcfd.chunk.js",
     "static/js/2.d775dcfd.chunk.js.map": "/hangout/static/js/2.d775dcfd.chunk.js.map",
     "index.html": "/hangout/index.html",
-    "precache-manifest.c7ef0e2b1f5e0be591f67e12a33a0bc4.js": "/hangout/precache-manifest.c7ef0e2b1f5e0be591f67e12a33a0bc4.js",
+    "precache-manifest.b288c2892e4a2cccf9821809dcf7d94d.js": "/hangout/precache-manifest.b288c2892e4a2cccf9821809dcf7d94d.js",
     "service-worker.js": "/hangout/service-worker.js",
-    "static/css/main.36e68969.chunk.css.map": "/hangout/static/css/main.36e68969.chunk.css.map",
+    "static/css/main.d79517ad.chunk.css.map": "/hangout/static/css/main.d79517ad.chunk.css.map",
     "static/js/2.d775dcfd.chunk.js.LICENSE.txt": "/hangout/static/js/2.d775dcfd.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.49fbb017.js",
     "static/js/2.d775dcfd.chunk.js",
-    "static/css/main.36e68969.chunk.css",
-    "static/js/main.29d313fb.chunk.js"
+    "static/css/main.d79517ad.chunk.css",
+    "static/js/main.e69fda23.chunk.js"
   ]
 }
