@@ -2,6 +2,59 @@ import { mockEvents } from "./mock-events";
 import axios from "axios";
 //File to be a placeholder for the real api
 
+async function getOrRenewAccessToken(type, key) {
+  let url;
+  if (type === "get") {
+    url =
+      "https://h5gxqq7w59.execute-api.eu-central-1.amazonaws.com/dev/api/token/" +
+      key;
+  } else if (type === "renew") {
+    url =
+      "https://h5gxqq7w59.execute-api.eu-central-1.amazonaws.com/dev/api/refresh/" +
+      key;
+  }
+
+  //Use axios to make the request
+  const tokenInfo = await axios.get(url);
+
+  //Save the tokens
+  localStorage.setItem("access_token", tokenInfo.data.access_token);
+  localStorage.setItem("refresh_token", tokenInfo.data.refresh_token);
+  localStorage.setItem("last_saved_time", Date.now());
+
+  //Return the token
+  return tokenInfo.data.access_token;
+}
+
+async function getAccessToken() {
+  //Get token from local storage
+  const accessToken = localStorage.getItem("access_token");
+
+  //If there's no token
+  if (!accessToken) {
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = searchParams.get("code");
+
+    //if there's no code
+    if (!code) {
+      window.location.href =
+        "https://secure.meetup.com/oauth2/authorize?client_id=8ve7uhod2no3bti56p8lfc6ncn&response_type=code&redirect_uri=https://marktiddy.github.io/hangout/";
+      return null;
+    }
+    //there's a code but no access token
+    return getOrRenewAccessToken("get", code);
+  }
+  //check the access token is valid
+  const lastSavedTime = localStorage.getItem("last_saved_time");
+  if (accessToken && Date.now() - lastSavedTime < 3600000) {
+    return accessToken;
+  } else {
+    //Access token is expired so we need to renew it
+    const refreshToken = localStorage.getItem("refresh_token");
+    return getOrRenewAccessToken("renew", refreshToken);
+  }
+}
+
 async function getSuggestions(query) {
   if (window.location.href.startsWith("http://localhost")) {
     return [
@@ -33,7 +86,7 @@ async function getSuggestions(query) {
     const url =
       "https://api.meetup.com/find/locations?&sign=true&photo-host=public&query=" +
       query +
-      "&access_token" +
+      "&access_token=" +
       token;
     const result = await axios.get(url);
     return result.data;
@@ -62,57 +115,3 @@ async function getEvents(lat, lon) {
 }
 
 export { getSuggestions, getEvents };
-
-function getAccessToken() {
-  //Get token from local storage
-  const accessToken = localStorage.getItem("access_token");
-
-  //If there's no token
-  if (!accessToken) {
-    const searchParams = new URLSearchParams(window.location.search);
-    const code = searchParams.get("code");
-
-    //if there's no code
-    if (!code) {
-      window.location.href =
-        "https://secure.meetup.com/oauth2/authorize?client_id=8ve7uhod2no3bti56p8lfc6ncn&response_type=code&redirect_uri=https://marktiddy.github.io/hangout/";
-      return null;
-    }
-    //there's a code but no access token
-    return getOrRenewAccessToken("get", code);
-  }
-  //check the access token is valid
-  const lastSavedTime = localStorage.getItem("last_saved_time");
-  if (accessToken && Date.now() - lastSavedTime < 3600000) {
-    return accessToken;
-  } else {
-    //Access token is expired so we need to renew it
-    const refreshToken = localStorage.getItem("refresh_token");
-    return getOrRenewAccessToken("renew", refreshToken);
-  }
-}
-
-async function getOrRenewAccessToken(type, key) {
-  let url;
-  if (type === "get") {
-    url =
-      "https://h5gxqq7w59.execute-api.eu-central-1.amazonaws.com/dev/api/token/" +
-      key;
-    console.log("running");
-  } else if (type === "renew") {
-    url =
-      "https://h5gxqq7w59.execute-api.eu-central-1.amazonaws.com/dev/api/refresh/" +
-      key;
-  }
-
-  //Use axios to make the request
-  const tokenInfo = await axios.get(url);
-
-  //Save the tokens
-  localStorage.setItem("access_token", tokenInfo.data.access_token);
-  localStorage.setItem("refresh_token", tokenInfo.data.refresh_token);
-  localStorage.setItem("last_saved_time", Date.now());
-
-  //Return the token
-  return tokenInfo.data.access_token;
-}

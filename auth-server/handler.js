@@ -10,7 +10,7 @@ module.exports.getAccessToken = async event => {
     "?client_id=8ve7uhod2no3bti56p8lfc6ncn" +
     "&client_secret=envomcfk6pcv9mlmdvb2eu5gpr" +
     "&grant_type=authorization_code" +
-    "&redirect_uri=https://marktiddy.github.io/" +
+    "&redirect_uri=https://marktiddy.github.io/hangout/" +
     "&code=" +
     event.pathParameters.code;
 
