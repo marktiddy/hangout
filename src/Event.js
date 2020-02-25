@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactHtmlParser from "react-html-parser";
 
 class Event extends Component {
   state = {
@@ -8,18 +9,29 @@ class Event extends Component {
   toggleDetails = () => this.setState(({ isShown }) => ({ isShown: !isShown }));
 
   render() {
+    const venue = this.props.event.venue;
     const { isShown } = this.state;
     return (
-      <div className="eventOverview">
-        <h2> {this.props.event.name}</h2>
+      <div className="eventOverview Event">
+        <h4> {this.props.event.name}</h4>
         <p>
-          {this.props.event.local_date} -{this.props.event.local_time} at{" "}
-          {this.props.event.venue.name}
+          {this.props.event.local_time} - {this.props.event.local_date}
         </p>
+        <p>
+          Venue:{" "}
+          {venue
+            ? `${venue.name}, ${venue.address_1}, ${venue.city}`
+            : "No Venue"}
+        </p>
+
         <button className="detailsButton" onClick={this.toggleDetails}>
-          Details
+          {isShown ? "Hide Details" : "Show Details"}
         </button>
-        {isShown && <div className="eventDetails">More details go here</div>}
+        {isShown && (
+          <div className="eventDetails">
+            {ReactHtmlParser(this.props.event.description)}
+          </div>
+        )}
       </div>
     );
   }
