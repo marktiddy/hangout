@@ -9,7 +9,7 @@ class NumberOfEvents extends Component {
   render() {
     return (
       <div className="numberComponent">
-        <div class="numberComponent__item">
+        <div className="numberComponent__item">
           <p>Number of events to show</p>
         </div>
 

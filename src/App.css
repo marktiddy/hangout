@@ -13,6 +13,17 @@ body {
   box-sizing: border-box;
 }
 
+.title h1 {
+  font-family: "Patrick Hand";
+  font-size: 50px;
+}
+
+.title p {
+  margin-top: -25px;
+  padding-bottom: 30px;
+  font-style: italic;
+}
+
 ul {
   padding: 0;
   list-style: none;
