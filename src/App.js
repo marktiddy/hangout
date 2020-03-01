@@ -21,6 +21,23 @@ class App extends Component {
     getEvents(lat, lon).then(events => this.setState({ events }));
   };
 
+  processLocation = position => {
+    let lat = position.coords.latitude.toFixed(2);
+    let lon = position.coords.longitude.toFixed(2);
+    this.updateEvents(lat, lon);
+  };
+
+  componentDidMount() {
+    if (window.location.href.startsWith("http://localhost")) {
+      this.updateEvents(51.72, 1.14);
+    }
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.processLocation);
+    } else {
+      this.updateEvents(51.72, 1.14);
+    }
+  }
+
   render() {
     return (
       <div className="App">

@@ -6,7 +6,9 @@ class EventList extends Component {
     return (
       <div>
         <ul className="EventList">
-          <h3>{this.props.events[0] ? "Upcoming Events" : ""}</h3>
+          <h3 className="eventsTitle">
+            {this.props.events[0] ? "Upcoming Events" : ""}
+          </h3>
 
           {this.props.events.map(event => (
             <li key={event.id}>

@@ -29,6 +29,7 @@ class Event extends Component {
         </button>
         {isShown && (
           <div className="eventDetails">
+            <strong>Details</strong>
             {ReactHtmlParser(this.props.event.description)}
           </div>
         )}
