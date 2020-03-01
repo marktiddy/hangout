@@ -42,7 +42,6 @@ defineFeature(feature, test => {
       expect(AppWrapper.find(".select-css")).toHaveLength(1);
       AppWrapper.setState({ eventsToShow: 5 });
       expect(AppWrapper.state("eventsToShow")).toEqual(5);
-      // AppWrapper.update();
     });
 
     then("the list shrinks to show five events", () => {
