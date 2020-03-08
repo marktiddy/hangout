@@ -99,6 +99,11 @@ async function getEvents(lat, lon) {
     return mockEvents.events;
   }
 
+  if (!navigator.onLine) {
+    const events = localStorage.getItem("lastEvents");
+    return JSON.parse(events);
+  }
+
   const token = await getAccessToken();
 
   if (token) {
@@ -110,7 +115,11 @@ async function getEvents(lat, lon) {
       url += "&lat=" + lat + "&lon=" + lon;
     }
     const result = await axios.get(url);
-    return result.data.events;
+    const events = result.data.events;
+    if (events.length) {
+      localStorage.setItem("lastEvents", JSON.stringify(events));
+    }
+    return events;
   }
 }
 

@@ -31,11 +31,7 @@ class App extends Component {
     if (window.location.href.startsWith("http://localhost")) {
       this.updateEvents(51.72, 1.14);
     }
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(this.processLocation);
-    } else {
-      this.updateEvents(51.72, 1.14);
-    }
+    this.updateEvents();
   }
 
   render() {

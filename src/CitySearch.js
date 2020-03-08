@@ -14,7 +14,7 @@ class CitySearch extends Component {
     this.setState({ query: value });
 
     //If value is something e.g. we're typing and the suggestions is zero
-    if (value && this.state.suggestions.length === 0) {
+    if (value.length > 1 && this.state.suggestions.length === 0) {
       this.setState({
         infoText:
           "We cannot find the city you are looking for. Please try another"

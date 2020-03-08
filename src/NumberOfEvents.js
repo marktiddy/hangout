@@ -1,19 +1,19 @@
 import React, { Component } from "react";
-import { WarningAlert } from "./Alert";
+//import { WarningAlert } from "./Alert";
 
 class NumberOfEvents extends Component {
-  state = {
-    warningText: ""
-  };
+  // state = {
+  //   warningText: ""
+  // };
 
   handleChoiceChange = event => {
     const value = event.target.value;
 
-    if (value <= 0) {
-      this.setState({ warningText: "Number cannot be below 0" });
-    } else {
-      this.setState({ warningText: "" });
-    }
+    // if (value <= 0) {
+    //   this.setState({ warningText: "Number cannot be below 0" });
+    // } else {
+    //   this.setState({ warningText: "" });
+    // }
     this.props.updateNumber(value);
   };
 
@@ -32,13 +32,11 @@ class NumberOfEvents extends Component {
             onChange={this.handleChoiceChange}
             defaultValue={this.props.numEvents}
           >
-            <option value="-5">-5</option>
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="25">25</option>
             <option value="50">50</option>
           </select>
-          <WarningAlert text={this.state.warningText} />
         </div>
       </div>
     );
