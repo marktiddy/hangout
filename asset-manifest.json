@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/hangout/static/css/main.dc925d02.chunk.css",
-    "main.js": "/hangout/static/js/main.9371ec59.chunk.js",
-    "main.js.map": "/hangout/static/js/main.9371ec59.chunk.js.map",
+    "main.css": "/hangout/static/css/main.20dcc92f.chunk.css",
+    "main.js": "/hangout/static/js/main.6a323384.chunk.js",
+    "main.js.map": "/hangout/static/js/main.6a323384.chunk.js.map",
     "runtime-main.js": "/hangout/static/js/runtime-main.49fbb017.js",
     "runtime-main.js.map": "/hangout/static/js/runtime-main.49fbb017.js.map",
     "static/js/2.43d09398.chunk.js": "/hangout/static/js/2.43d09398.chunk.js",
     "static/js/2.43d09398.chunk.js.map": "/hangout/static/js/2.43d09398.chunk.js.map",
     "index.html": "/hangout/index.html",
-    "precache-manifest.ac3c34129442ea6826b80f2b6153852e.js": "/hangout/precache-manifest.ac3c34129442ea6826b80f2b6153852e.js",
+    "precache-manifest.38b76949e92ed55799aa404e2fa11bab.js": "/hangout/precache-manifest.38b76949e92ed55799aa404e2fa11bab.js",
     "service-worker.js": "/hangout/service-worker.js",
-    "static/css/main.dc925d02.chunk.css.map": "/hangout/static/css/main.dc925d02.chunk.css.map",
+    "static/css/main.20dcc92f.chunk.css.map": "/hangout/static/css/main.20dcc92f.chunk.css.map",
     "static/js/2.43d09398.chunk.js.LICENSE.txt": "/hangout/static/js/2.43d09398.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.49fbb017.js",
     "static/js/2.43d09398.chunk.js",
-    "static/css/main.dc925d02.chunk.css",
-    "static/js/main.9371ec59.chunk.js"
+    "static/css/main.20dcc92f.chunk.css",
+    "static/js/main.6a323384.chunk.js"
   ]
 }
