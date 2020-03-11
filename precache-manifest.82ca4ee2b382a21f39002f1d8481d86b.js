@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8cb837f0d83652ece89a2d8681158f6b",
+    "revision": "1e4b28eefbe59269e8f960fc32c5ec70",
     "url": "/hangout/index.html"
   },
   {
-    "revision": "952805317b74d45e62ec",
+    "revision": "efee7c9d88ee15721f21",
     "url": "/hangout/static/css/main.61b430b3.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/hangout/static/js/2.ed67ab7c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "952805317b74d45e62ec",
-    "url": "/hangout/static/js/main.60c48925.chunk.js"
+    "revision": "efee7c9d88ee15721f21",
+    "url": "/hangout/static/js/main.fa72cf41.chunk.js"
   },
   {
     "revision": "dbc13f41576c1660f200",
