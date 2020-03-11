@@ -4,7 +4,7 @@ import { InfoAlert } from "./Alert";
 
 class CitySearch extends Component {
   state = {
-    query: "Munich",
+    query: "",
     suggestions: []
   };
 
