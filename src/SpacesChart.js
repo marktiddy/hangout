@@ -26,7 +26,6 @@ class SpacesChart extends Component {
 
   componentDidMount() {
     this.formatData();
-    console.log("i am running");
   }
 
   render() {
